@@ -1,18 +1,15 @@
-SHIFTMATE AUSTRALIA — V4.3 UPDATE
+TORVILO V5 — REBRAND PACKAGE
+Prepared before deployment. Do not deploy until torvilo.au is connected to Vercel.
 
-Changed files:
-- index.html
-- privacy.html
-- guides/check-your-pay.html
-- README.txt
+Includes:
+- Complete ShiftMate → TORVILO rebrand
+- torvilo.au canonical, Open Graph, robots and sitemap URLs
+- Improved mobile navigation
+- Updated homepage identity and messaging
+- Existing six calculators and Shift Tracker
+- Existing tracker browser data preserved by retaining shiftmate_tracker_v3
+- New CSV filename: torvilo-shifts.csv
+- Consistent navigation and footer
+- September 2026 pay-rate wording
 
-Changes:
-- Removed old visitor-facing Version 2 / Version 3 wording.
-- Removed public monetisation and advertising placeholders.
-- Added privacy-focused homepage content.
-- Updated the Privacy page.
-- Made the Check Your Pay guide navigation/footer consistent.
-- Existing calculators and Shift Tracker remain unchanged.
-
-Upload these replacement files to the main branch of rndmtrgt-debug/shiftmate-australia.
-Vercel should deploy automatically after the GitHub commit.
+Deployment: connect domain → upload package to GitHub main → verify Vercel → test pages/tools.
