@@ -6,6 +6,7 @@ const pos=(id,label)=>{const v=num(id);if(v===null||v<=0)throw new Error(`Enter 
 const showError=m=>{const r=el('result');if(r)r.textContent=m};
 
 function residentTax2627(x){if(x<=18200)return 0;if(x<=45000)return(x-18200)*.15;if(x<=135000)return 4020+(x-45000)*.30;if(x<=190000)return 31020+(x-135000)*.37;return 51370+(x-190000)*.45}
+function medicareEstimate(x){if(x<=27222)return 0;if(x<34028)return Math.min(x*.02,(x-27222)*.10);return x*.02}
 function taxSuperEstimate(gross,annualGross,ordinaryGross,periods){const annualTax=residentTax2627(annualGross),tax=annualTax/periods,net=Math.max(0,gross-tax),superAmt=Math.max(0,ordinaryGross)*.12;return{tax,net,superAmt}}
 function shiftCalc(){try{const h=nn('hours','shift length'),b=nn('break','unpaid break'),r=nn('rate','hourly rate'),m=pos('multi','rate multiplier');if(b>h*60)throw new Error('Unpaid break cannot be longer than the shift.');const p=h-b/60,g=p*r*m,periods=52,ts=taxSuperEstimate(g,g*periods,p*r,periods);el('result').innerHTML=`Paid hours: ${p.toFixed(2)}<br>Estimated gross pay: ${money(g)}<br>Estimated income tax*: ${money(ts.tax)}<br><b>Estimated take-home*: ${money(ts.net)}</b><br>Estimated employer super (12%)†: ${money(ts.superAmt)}`}catch(e){showError(e.message)}}
 function breakCalc(){try{const h=nn('length','shift length'),b=nn('break','unpaid break');if(b>h*60)throw new Error('Unpaid break cannot be longer than the shift.');el('result').textContent='Paid hours: '+(h-b/60).toFixed(2)}catch(e){showError(e.message)}}
